@@ -1,18 +1,17 @@
 import {Message} from "discord.js";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
-import { HttpClient } from "./http-client";
-import { User } from "../types/user";
+import { UserModule } from "../modules/user-info/user-info";
 
 @injectable()
 export class MessageResponder {
 
-  private httpClient: HttpClient;
+  private userModule: UserModule
 
   constructor(
-    @inject(TYPES.HttpClient) client: HttpClient
+    @inject(TYPES.UserModule) userModule: UserModule
   ) {
-    this.httpClient = client;
+    this.userModule = userModule;
   }
 
   async handle(message: Message): Promise<Message | Message[]> {
@@ -26,14 +25,15 @@ export class MessageResponder {
     }
 
     if(message.content.startsWith("!stock")){
+
         return message.channel.send('stocks to be here soon');
     }
 
     if(message.content.startsWith("!user") && message.author.id === '182150558638014464'){
-      //await this.userModule.handle(message)
+
       let userId = message.content.substring(6, message.content.length)
-      const response : User = await this.httpClient.singleSelectionCall('user','basic',userId);
-        return message.channel.send(response.name);
+      await this.userModule.createProfileMessage(message, userId)
+      return message.delete();
     }
 
     return Promise.reject();

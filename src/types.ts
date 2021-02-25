@@ -4,5 +4,11 @@ export const TYPES = {
     Token: Symbol("Token"),
     MessageResponder: Symbol("MessageResponder"),
     HostApi: Symbol("HostApi"),
-    HttpClient: Symbol("HttpClient")
+    HttpClient: Symbol("HttpClient"),
+    //User Module
+    UserSandbox: Symbol("UserSandbox"),
+    UserModule: Symbol("UserModule"),
+    //Stocks Module
+    StocksSandbox: Symbol("StocksSandbox"),
+    StocksModule: Symbol("StocksModule")
   };
