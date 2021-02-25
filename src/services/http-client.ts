@@ -1,6 +1,7 @@
 import { injectable, inject } from "inversify";
 import { TYPES } from "../types";
 import axios from "axios";
+import { ApiCallEnum } from "../enumerations/api-call-enum";
 
 @injectable()
 export class HttpClient {
@@ -12,9 +13,9 @@ export class HttpClient {
         this.key = apiKey;
     }
 
-    public async apiCall(apiClass : string, selection : string | string [], id : string) : Promise<any> {
+    public async apiCall(apiClass : ApiCallEnum, selection : string | string [], id : string | string []) : Promise<any> {
 
-        let url = `https://api.torn.com/${apiClass}/${id}?selections=${selection.toString()}&key=${this.key}`;
+        let url = `https://api.torn.com/${apiClass}/${id.toString()}?selections=${selection.toString()}&key=${this.key}`;
 
         const response = axios.get(url)
             .then(response => { 
