@@ -12,9 +12,9 @@ export class HttpClient {
         this.key = apiKey;
     }
 
-    public async singleSelectionCall(apiClass : string, selection : string, id : string) : Promise<any> {
+    public async apiCall(apiClass : string, selection : string | string [], id : string) : Promise<any> {
 
-        let url = `https://api.torn.com/${apiClass}/${id}?selections=${selection}&key=${this.key}`;
+        let url = `https://api.torn.com/${apiClass}/${id}?selections=${selection.toString()}&key=${this.key}`;
 
         const response = axios.get(url)
             .then(response => { 
@@ -27,4 +27,5 @@ export class HttpClient {
         return response;
 
     }
+
 }

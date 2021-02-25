@@ -15,7 +15,7 @@ export class StocksSandbox {
       }
 
     public async getStocks() : Promise<Stock[]> {
-        return await this.httpClient.singleSelectionCall('torn', 'stocks', '');
+        return await this.httpClient.apiCall('torn', 'stocks', '');
     }
     
 }

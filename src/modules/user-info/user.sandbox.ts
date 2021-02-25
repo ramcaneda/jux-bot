@@ -15,7 +15,7 @@ export class UserSandbox {
       }
 
     public async getProfile(userId : string) : Promise<Profile> {
-        return await this.httpClient.singleSelectionCall('user', 'profile', userId);
+        return await this.httpClient.apiCall('user', 'profile', userId);
     }
 
 }
