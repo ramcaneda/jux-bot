@@ -32,7 +32,7 @@ export class MessageResponder {
     if(message.content.startsWith("!user") && message.author.id === '182150558638014464'){
       //await this.userModule.handle(message)
       let userId = message.content.substring(6, message.content.length)
-      const response : User = await this.httpClient.genericCall('user','basic',userId);
+      const response : User = await this.httpClient.singleSelectionCall('user','basic',userId);
         return message.channel.send(response.name);
     }
 

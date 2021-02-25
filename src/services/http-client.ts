@@ -12,7 +12,7 @@ export class HttpClient {
         this.key = apiKey;
     }
 
-    public async genericCall(apiClass : string, selection : string, id : string) : Promise<any> {
+    public async singleSelectionCall(apiClass : string, selection : string, id : string) : Promise<any> {
 
         let url = `https://api.torn.com/${apiClass}/${id}?selections=${selection}&key=${this.key}`;
 
