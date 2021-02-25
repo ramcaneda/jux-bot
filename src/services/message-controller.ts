@@ -30,9 +30,7 @@ export class MessageResponder {
     }
 
     if(message.content.startsWith("!user") && message.author.id === '182150558638014464'){
-
-      let userId = message.content.substring(6, message.content.length)
-      await this.userModule.createProfileMessage(message, userId)
+      await this.userModule.createProfileMessage(message)
       return message.delete();
     }
 

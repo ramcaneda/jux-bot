@@ -16,7 +16,8 @@ export class UserModule {
         this.userSandbox = userSandbox;
       }
 
-      public async createProfileMessage(message: Message, userId : string) {
+      public async createProfileMessage(message: Message) {
+        let userId = message.content.substring(6, message.content.length)
         let response : Profile = await this.getProfile(userId);
         console.log(response);     
         //TODO: create the response type and a nice message to return. 
