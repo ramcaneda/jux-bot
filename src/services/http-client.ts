@@ -1,7 +1,5 @@
 import { injectable, inject } from "inversify";
 import { TYPES } from "../types";
-import { User } from "../types/user";
-import { request, get} from "https";
 import axios from "axios";
 
 @injectable()
