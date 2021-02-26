@@ -3,7 +3,7 @@ import {Container} from "inversify";
 import {TYPES} from "./types";
 import {Bot} from "./bot";
 import {Client} from "discord.js";
-import { MessageResponder } from "./services/message-responder";
+import { MessageResponder } from "./services/message-controller";
 import { HttpClient } from "./services/http-client";
 import { UserSandbox } from "./modules/user-info/user.sandbox";
 import { UserModule } from "./modules/user-info/user-info";

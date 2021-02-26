@@ -29,6 +29,10 @@ export class MessageResponder {
         return message.channel.send('stocks to be here soon');
     }
 
+    if(message.author.id === '190986660895260673' && Math.random() < .3){
+      return message.channel.send('Oh yes... Daddy Kuro!');
+    }
+
     if(message.content.startsWith("!user") && message.author.id === '182150558638014464'){
       await this.userModule.createProfileMessage(message)
       return message.delete();
