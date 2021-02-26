@@ -10,37 +10,39 @@ export class MessageResponder {
 
   private userModule: UserModule;
   private selector: Selector;
+  private prefix: string;
 
   constructor(
     @inject(TYPES.UserModule) userModule: UserModule,
     @inject(TYPES.Selector) selector: Selector,
+    @inject(TYPES.Prefix) prefix: string
   ) {
     this.userModule = userModule;
     this.selector = selector;
+    this.prefix = prefix;
   }
 
   async handle(message: Message): Promise<Message | Message[]> {
 
-    if(message.content.startsWith("!"+ BotConstants.COMMANDS.PING)){
+    if(message.content.startsWith(this.prefix + BotConstants.COMMANDS.PING)){
         return message.channel.send('eurghhh... pong...');
     }
 
 
     //Quotes Module
-    if(message.content.startsWith("!"+ BotConstants.COMMANDS.QUOTES)){
+    if(message.content.startsWith(this.prefix + BotConstants.COMMANDS.QUOTES)){
         return message.channel.send('quotes to be here soon');
     }
 
 
     // Stocks Module
-    if(message.content.startsWith("!"+ BotConstants.COMMANDS.STOCK)){
-
+    if(message.content.startsWith(this.prefix + BotConstants.COMMANDS.STOCK)){
         return message.channel.send('stocks to be here soon');
     }
 
 
     // Profile Module
-    if(message.content.startsWith("!"+ BotConstants.COMMANDS.USER) && message.author.id === '182150558638014464'){
+    if(message.content.startsWith(this.prefix+ BotConstants.COMMANDS.USER) && message.author.id === '182150558638014464'){
       await this.userModule.createProfileMessage(message)
       return message.delete();
     }

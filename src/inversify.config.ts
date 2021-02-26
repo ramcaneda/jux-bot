@@ -15,9 +15,14 @@ let container = new Container();
 
 container.bind<Bot>(TYPES.Bot).to(Bot).inSingletonScope();
 container.bind<Client>(TYPES.Client).toConstantValue(new Client());
+
+//env
 container.bind<string>(TYPES.Token).toConstantValue(<string>process.env.TOKEN);
-container.bind<MessageResponder>(TYPES.MessageResponder).to(MessageResponder).inSingletonScope();
 container.bind<string>(TYPES.HostApi).toConstantValue(<string>process.env.HOSTAPI);
+container.bind<string>(TYPES.Prefix).toConstantValue(<string>process.env.PREFIX);
+
+//Framework
+container.bind<MessageResponder>(TYPES.MessageResponder).to(MessageResponder).inSingletonScope();
 container.bind<HttpClient>(TYPES.HttpClient).to(HttpClient).inSingletonScope();
 container.bind<Selector>(TYPES.Selector).to(Selector).inSingletonScope();
 

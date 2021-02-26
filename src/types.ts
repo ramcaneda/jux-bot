@@ -1,9 +1,12 @@
 export const TYPES = {
     Bot: Symbol("Bot"),
     Client: Symbol("Client"),
+    //env vars
     Token: Symbol("Token"),
-    MessageResponder: Symbol("MessageResponder"),
     HostApi: Symbol("HostApi"),
+    Prefix: Symbol("Prefix"),
+    //framework
+    MessageResponder: Symbol("MessageResponder"),
     HttpClient: Symbol("HttpClient"),
     Selector: Symbol("Selector"),
     //User Module
