@@ -3,6 +3,7 @@ import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
 import { UserModule } from "../modules/user-info/user-info";
 import { Selector } from "../utils/selector";
+import { BotConstants } from "../bot-constants";
 
 @injectable()
 export class MessageResponder {
@@ -20,26 +21,26 @@ export class MessageResponder {
 
   async handle(message: Message): Promise<Message | Message[]> {
 
-    if(message.content.startsWith("!ping")){
+    if(message.content.startsWith("!"+ BotConstants.COMMANDS.PING)){
         return message.channel.send('eurghhh... pong...');
     }
 
 
     //Quotes Module
-    if(message.content.startsWith("!quotes")){
+    if(message.content.startsWith("!"+ BotConstants.COMMANDS.QUOTES)){
         return message.channel.send('quotes to be here soon');
     }
 
 
     // Stocks Module
-    if(message.content.startsWith("!stock")){
+    if(message.content.startsWith("!"+ BotConstants.COMMANDS.STOCK)){
 
         return message.channel.send('stocks to be here soon');
     }
 
 
     // Profile Module
-    if(message.content.startsWith("!user") && message.author.id === '182150558638014464'){
+    if(message.content.startsWith("!"+ BotConstants.COMMANDS.USER) && message.author.id === '182150558638014464'){
       await this.userModule.createProfileMessage(message)
       return message.delete();
     }
@@ -56,7 +57,7 @@ export class MessageResponder {
       return message.channel.send(this.selector.randomMessageSelector(replies));
     }
 
-    if(message.member?.roles.cache.some(role => role.name === 'clogs') && Math.random() < .01){
+    if(message.member?.roles.cache.some(role => role.name === BotConstants.ROLES.CLOGS_ROLE) && Math.random() < .01){
       let replies = ['clogs, lol', //
       'ew Dutch people', //
       'Can I have some cheese', //
@@ -65,7 +66,7 @@ export class MessageResponder {
       return message.channel.send(this.selector.randomMessageSelector(replies));
     }
 
-    if(message.member?.roles.cache.some(role => role.name === 'Step Leaders') && Math.random() < .01){
+    if(message.member?.roles.cache.some(role => role.name === BotConstants.ROLES.STEP_LEADER_ROLE) && Math.random() < .01){
       let replies = ['What are you doing Step Leader!', //
       'Don\'t be Rhinkey Dink', //
       'Just blame Harley', //
