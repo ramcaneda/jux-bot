@@ -2,16 +2,20 @@ import {Message} from "discord.js";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
 import { UserModule } from "../modules/user-info/user-info";
+import { Selector } from "../utils/selector";
 
 @injectable()
 export class MessageResponder {
 
-  private userModule: UserModule
+  private userModule: UserModule;
+  private selector: Selector;
 
   constructor(
-    @inject(TYPES.UserModule) userModule: UserModule
+    @inject(TYPES.UserModule) userModule: UserModule,
+    @inject(TYPES.Selector) selector: Selector,
   ) {
     this.userModule = userModule;
+    this.selector = selector;
   }
 
   async handle(message: Message): Promise<Message | Message[]> {
@@ -49,7 +53,7 @@ export class MessageResponder {
        'How did you like Avatar: the last airbender, the movie?', //
        'Hey'//
       ]
-      return message.channel.send(this.randomMessageSelector(replies));
+      return message.channel.send(this.selector.randomMessageSelector(replies));
     }
 
     if(message.member?.roles.cache.some(role => role.name === 'clogs') && Math.random() < .01){
@@ -58,7 +62,7 @@ export class MessageResponder {
       'Can I have some cheese', //
       'Hey'
      ]
-      return message.channel.send(this.randomMessageSelector(replies));
+      return message.channel.send(this.selector.randomMessageSelector(replies));
     }
 
     if(message.member?.roles.cache.some(role => role.name === 'Step Leaders') && Math.random() < .01){
@@ -67,16 +71,10 @@ export class MessageResponder {
       'Just blame Harley', //
       'Hey'
      ]
-      return message.channel.send(this.randomMessageSelector(replies));
+      return message.channel.send(this.selector.randomMessageSelector(replies));
     }
 
     return Promise.reject();
   }
 
-  private randomMessageSelector(messageList : string[]) : string {
-
-    let random = Math.floor(Math.random() * messageList.length - 1);
-
-    return messageList[random]
-  }
 }

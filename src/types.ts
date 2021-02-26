@@ -5,6 +5,7 @@ export const TYPES = {
     MessageResponder: Symbol("MessageResponder"),
     HostApi: Symbol("HostApi"),
     HttpClient: Symbol("HttpClient"),
+    Selector: Symbol("Selector"),
     //User Module
     UserSandbox: Symbol("UserSandbox"),
     UserModule: Symbol("UserModule"),

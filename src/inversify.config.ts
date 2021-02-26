@@ -9,6 +9,7 @@ import { UserSandbox } from "./modules/user-info/user.sandbox";
 import { UserModule } from "./modules/user-info/user-info";
 import { StocksSandbox } from "./modules/stocks/stocks.sandbox";
 import { StocksModule } from "./modules/stocks/stocks";
+import { Selector } from "./utils/selector";
 
 let container = new Container();
 
@@ -18,6 +19,7 @@ container.bind<string>(TYPES.Token).toConstantValue(<string>process.env.TOKEN);
 container.bind<MessageResponder>(TYPES.MessageResponder).to(MessageResponder).inSingletonScope();
 container.bind<string>(TYPES.HostApi).toConstantValue(<string>process.env.HOSTAPI);
 container.bind<HttpClient>(TYPES.HttpClient).to(HttpClient).inSingletonScope();
+container.bind<Selector>(TYPES.Selector).to(Selector).inSingletonScope();
 
 //User Module
 container.bind<UserSandbox>(TYPES.UserSandbox).to(UserSandbox).inSingletonScope();
