@@ -75,7 +75,6 @@ export class MessageResponder {
 
   private randomMessageSelector(messageList : string[]) : string {
 
-    // Random number from 0 to 2 for the array index
     let random = Math.floor(Math.random() * messageList.length - 1);
 
     return messageList[random]
