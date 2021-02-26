@@ -44,17 +44,40 @@ export class MessageResponder {
     //Easter eggs
 
     if(message.author.id === '190986660895260673' && Math.random() < .01){
-      return message.channel.send('Oh yes... Daddy Kuro!');
+      let replies = ['Oh yes... Daddy Kuro!', //
+       'Kurt!', //
+       'How did you like Avatar: the last airbender, the movie?', //
+       'Hey'//
+      ]
+      return message.channel.send(this.randomMessageSelector(replies));
     }
 
     if(message.member?.roles.cache.some(role => role.name === 'clogs') && Math.random() < .01){
-      return message.channel.send('Ew dutch people');
+      let replies = ['clogs, lol', //
+      'ew Dutch people', //
+      'Can I have some cheese', //
+      'Hey'
+     ]
+      return message.channel.send(this.randomMessageSelector(replies));
     }
 
     if(message.member?.roles.cache.some(role => role.name === 'Step Leaders') && Math.random() < .01){
-      return message.channel.send('What are you doing step leader!');
+      let replies = ['What are you doing Step Leader!', //
+      'Don\'t be Rhinkey Dink', //
+      'Just blame Harley', //
+      'Hey'
+     ]
+      return message.channel.send(this.randomMessageSelector(replies));
     }
 
     return Promise.reject();
+  }
+
+  private randomMessageSelector(messageList : string[]) : string {
+
+    // Random number from 0 to 2 for the array index
+    let random = Math.floor(Math.random() * messageList.length - 1);
+
+    return messageList[random]
   }
 }
