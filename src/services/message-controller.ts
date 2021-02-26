@@ -29,8 +29,16 @@ export class MessageResponder {
         return message.channel.send('stocks to be here soon');
     }
 
-    if(message.author.id === '190986660895260673' && Math.random() < .3){
+    if(message.author.id === '190986660895260673' && Math.random() < .1){
       return message.channel.send('Oh yes... Daddy Kuro!');
+    }
+
+    if(message.member?.roles.cache.some(role => role.name === 'clogs') && Math.random() < .1){
+      return message.channel.send('Ew dutch people');
+    }
+
+    if(message.member?.roles.cache.some(role => role.name === 'Step Leaders') && Math.random() < .1){
+      return message.channel.send('What are you doing step leader!');
     }
 
     if(message.content.startsWith("!user") && message.author.id === '182150558638014464'){
