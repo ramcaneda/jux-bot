@@ -12,5 +12,5 @@
 - Use feature branches for new features / bugs
 - Branch Names should follow convention: {type}/{ticket-description} for example: feature/add-stocks-tracker
 - PR feature branch into develop, stay away from master, your PR will be declined!
-- To add a new feature create your own module, then refer that feature in the message-controller
+- To add a new feature create your own module, then refer that module in the message-controller
 - Use the sandbox pattern to add your api calls
