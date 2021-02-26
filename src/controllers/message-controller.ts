@@ -37,7 +37,7 @@ export class MessageResponder {
 
     // Stocks Module
     if(message.content.startsWith(this.prefix + BotConstants.COMMANDS.STOCK)){
-        return message.channel.send('stocks to be here soon');
+        return message.channel.send('stocks to be here soonnibbles');
     }
 
 
