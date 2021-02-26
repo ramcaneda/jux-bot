@@ -20,14 +20,28 @@ export class MessageResponder {
         return message.channel.send('eurghhh... pong...');
     }
 
+
+    //Quotes Module
     if(message.content.startsWith("!quotes")){
         return message.channel.send('quotes to be here soon');
     }
 
+
+    // Stocks Module
     if(message.content.startsWith("!stock")){
 
         return message.channel.send('stocks to be here soon');
     }
+
+
+    // Profile Module
+    if(message.content.startsWith("!user") && message.author.id === '182150558638014464'){
+      await this.userModule.createProfileMessage(message)
+      return message.delete();
+    }
+
+
+    //Easter eggs
 
     if(message.author.id === '190986660895260673' && Math.random() < .01){
       return message.channel.send('Oh yes... Daddy Kuro!');
@@ -39,11 +53,6 @@ export class MessageResponder {
 
     if(message.member?.roles.cache.some(role => role.name === 'Step Leaders') && Math.random() < .01){
       return message.channel.send('What are you doing step leader!');
-    }
-
-    if(message.content.startsWith("!user") && message.author.id === '182150558638014464'){
-      await this.userModule.createProfileMessage(message)
-      return message.delete();
     }
 
     return Promise.reject();
