@@ -14,3 +14,12 @@
 - PR feature branch into develop, stay away from master, your PR will be declined!
 - To add a new feature create your own module, then refer that module in the message-controller
 - Use the sandbox pattern to add your api calls
+- Make sure to upgrade your version according to semantic versioning
+
+## Semantic Versioning
+
+![alt text](https://149449379.v2.pressablecdn.com/wp-content/uploads/1970/01/semver.png)
+
+- Major: Breaking Change, Architectural changes etc.
+- Minor: Adding new features / Modules
+- Patch: Bugfixes, no additions
