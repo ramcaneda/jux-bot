@@ -37,12 +37,12 @@ export class MessageResponder {
 
     // Stocks Module
     if(message.content.startsWith(this.prefix + BotConstants.COMMANDS.STOCK)){
-        return message.channel.send('stocks to be here soon');
+        return message.channel.send('stocks to be here soonnibbles');
     }
 
 
     // Profile Module
-    if(message.content.startsWith(this.prefix+ BotConstants.COMMANDS.USER) && message.author.id === '182150558638014464'){
+    if(message.content.startsWith(this.prefix+ BotConstants.COMMANDS.USER)){
       await this.userModule.createProfileMessage(message)
       return message.delete();
     }
