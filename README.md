@@ -3,7 +3,8 @@
 ## Set up your bot locally
 
 - make sure you have node.js
-- make sure needed packages are installed by running npm install
+- make sure needed packages are installed by running npm install\
+- change env.example to .env and add in the required values
 - run compiler by typing npm run watch
 - run by typing npm start
 
