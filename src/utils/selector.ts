@@ -1,5 +1,4 @@
-import { injectable, inject } from "inversify";
-import { TYPES } from "../types";
+import { injectable } from "inversify";
 
 @injectable()
 export class Selector {
