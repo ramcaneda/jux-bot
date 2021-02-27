@@ -5,11 +5,13 @@ export const TYPES = {
     Token: Symbol("Token"),
     HostApi: Symbol("HostApi"),
     Prefix: Symbol("Prefix"),
+    DatabaseUrl: Symbol("DatabaseUrl"),
     //framework
     MessageResponder: Symbol("MessageResponder"),
     HttpClient: Symbol("HttpClient"),
     Selector: Symbol("Selector"),
     CustomParsers: Symbol("CustomParsers"),
+    DatabaseController: Symbol('DatabaseController'),
     //User Module
     UserSandbox: Symbol("UserSandbox"),
     UserModule: Symbol("UserModule"),
