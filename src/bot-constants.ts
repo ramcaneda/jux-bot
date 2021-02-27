@@ -7,7 +7,8 @@ export const BotConstants = {
         PING: 'ping',
         QUOTES: 'quotes',
         STOCK: 'stock',
-        USER: 'user'
+        USER: 'user',
+        GENERATE_DB: 'gndb'
     },
     URL: {
         PROFILE: 'https://www.torn.com/profiles.php?XID=',

@@ -5,6 +5,7 @@
 ## Set up your bot locally
 
 - make sure you have node.js
+- make sure you have postgres installed: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 - make sure needed packages are installed by running npm install\
 - change env.example to .env and add in the required values
 - run compiler by typing npm run watch
@@ -14,10 +15,13 @@
 
 - Use feature branches for new features / bugs
 - Branch Names should follow convention: {type}/{ticket-description} for example: feature/add-stocks-tracker
-- PR feature branch into develop, stay away from master, your PR will be declined!
 - To add a new feature create your own module, then refer that module in the message-controller
 - Use the sandbox pattern to add your api calls
 - Make sure to upgrade your version according to semantic versioning
+
+## Pull Requests
+- PR feature branch into develop using squash strategy.
+- Should you need to merge develop into main, use regular merge strategy.
 
 ## Semantic Versioning
 
