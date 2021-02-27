@@ -1,4 +1,4 @@
-https://github.com/WannesDC/jux-bot/workflows/Build/badge.svg
+(https://github.com/WannesDC/jux-bot/workflows/Build/badge.svg)
 
 # jux-bot
 
