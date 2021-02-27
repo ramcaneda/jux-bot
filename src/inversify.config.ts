@@ -29,7 +29,7 @@ container.bind<MessageResponder>(TYPES.MessageResponder).to(MessageResponder).in
 container.bind<HttpClient>(TYPES.HttpClient).to(HttpClient).inSingletonScope();
 container.bind<Selector>(TYPES.Selector).to(Selector).inSingletonScope();
 container.bind<CustomParsers>(TYPES.CustomParsers).to(CustomParsers).inSingletonScope();
-container.bind<DatabaseController>(TYPES.DatabaseController).to(DatabaseController).inSingletonScope();
+container.bind<DatabaseController>(TYPES.DatabaseUrl).to(DatabaseController).inSingletonScope();
 
 //User Module
 container.bind<UserSandbox>(TYPES.UserSandbox).to(UserSandbox).inSingletonScope();

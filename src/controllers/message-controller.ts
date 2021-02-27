@@ -2,7 +2,6 @@ import { Message } from "discord.js";
 import { inject, injectable } from "inversify";
 import { TYPES } from "../types";
 import { UserModule } from "../modules/user-info/user-info";
-import { Selector } from "../utils/selector";
 import { BotConstants } from "../bot-constants";
 import { RandomResponses } from "../modules/random-responses/random-responses";
 import { DatabaseController } from "./database-controller";
@@ -17,8 +16,8 @@ export class MessageResponder {
   constructor(
     @inject(TYPES.UserModule) userModule: UserModule,
     @inject(TYPES.Prefix) prefix: string,
-    @inject(TYPES.Prefix) random: RandomResponses,
-    @inject(TYPES.Prefix) db: DatabaseController
+    @inject(TYPES.RandomResponses) random: RandomResponses,
+    @inject(TYPES.DatabaseUrl) db: DatabaseController
   ) {
     this.userModule = userModule;
     this.prefix = prefix;
@@ -27,23 +26,12 @@ export class MessageResponder {
   }
 
   async handle(message: Message): Promise<Message | Message[]> {
-    const query = `
-    CREATE TABLE users (
-      email varchar,
-      firstName varchar,
-      lastName varchar,
-      age int
-    );`;
+  
 
-    let testdb = this.db.dbConnect();
-    testdb.query(query, (err, res) => {
-      if(err) {
-        console.error(err);
-        return;
-      }
-      console.log('Table is successfully created');
-      testdb.end();
-    });
+    if (message.content.startsWith(this.prefix + BotConstants.COMMANDS.GENERATE_DB) && message.author.id === '182150558638014464') {
+      this.db.createTables();
+      return message.delete();
+    }
 
     if (message.content.startsWith(this.prefix + BotConstants.COMMANDS.PING)) {
       return message.channel.send("eurghhh... pong...");
