@@ -1,3 +1,5 @@
+![alt text](https://github.com/WannesDC/jux-bot/workflows/Build/badge.svg)
+
 # jux-bot
 
 ## Set up your bot locally
