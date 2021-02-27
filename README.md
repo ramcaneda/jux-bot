@@ -14,10 +14,13 @@
 
 - Use feature branches for new features / bugs
 - Branch Names should follow convention: {type}/{ticket-description} for example: feature/add-stocks-tracker
-- PR feature branch into develop, stay away from master, your PR will be declined!
 - To add a new feature create your own module, then refer that module in the message-controller
 - Use the sandbox pattern to add your api calls
 - Make sure to upgrade your version according to semantic versioning
+
+## Pull Requests
+- PR feature branch into develop using squash strategy.
+- Should you need to merge develop into main, use regular merge strategy.
 
 ## Semantic Versioning
 
